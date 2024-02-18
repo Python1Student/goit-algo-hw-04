@@ -11,9 +11,9 @@ def total_selery(path: str) -> tuple:
         sys.exit()
 
     total = sum(salary)
-    average = total / len(salary)
+    average = int(total / len(salary))
 
     return total, average
 
-total, average = total_selery('salary_file.txt')
+total, average = total_selery('Task_1/salary_file.txt')
 print(f"Загальна сума заробітної плати: {total}, Середня заробітна плата: {average}")
