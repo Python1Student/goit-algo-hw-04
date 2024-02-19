@@ -13,8 +13,7 @@ def total_selery(path: str) -> tuple:
             salary = [int(num.split(',')[1].strip()) for num in file.readlines()]
     # Якщо файла не існує виводимо це і закриваємо програму
     else:
-        print('File Not Found')
-        sys.exit()
+        sys.exit('File Not Found')
 
     # Робимо змінну з сумою
     total   = sum(salary)
