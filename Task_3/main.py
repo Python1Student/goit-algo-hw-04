@@ -2,23 +2,31 @@ from pathlib import Path
 from colorama import Fore, Style
 from sys import argv
 
-COLORS = (Fore.GREEN, Fore.BLUE, Fore.LIGHTBLACK_EX, Fore.RED)
-
-
+# Створюємо функцію для виводу вимісту директорії
 def directory(path: str = '', depth: int = 1, is_root: bool = False) -> None:
+    # Створюємо об'єкт Path
     directory_path = Path(path)
+    # Перевіряємо чи функція викликається вперше
     if is_root:
-        print('📦 ' + COLORS[-1] + directory_path.name + Style.RESET_ALL)
+        print('📦 ' + Fore.RED + directory_path.name + Style.RESET_ALL)
 
+    # Перебираємо всі папки та файли
     for item in directory_path.iterdir():
+        # Отримуємо імя файлу
         name = item.name
-        print(COLORS[2] + '-' * depth + Style.RESET_ALL, end='')
+        # Виводимо отступи
+        print(Fore.LIGHTBLACK_EX + '-' * depth + Style.RESET_ALL, end='')
+        # Перевіряємо чи є обєкт папкой шоб ще раз відкрити
         if item.is_dir():
-            print('📂 ' + COLORS[0] + name + Style.RESET_ALL)
+            # Виводимо
+            print('📂 ' + Fore.GREEN + name + Style.RESET_ALL)
+            # Викликаємо функцію рекурсивно
             directory(item, depth + 1)
         else: 
-            print('📜 ' + COLORS[1] + name + Style.RESET_ALL)
-        
+            # Якшо файл то виводимо
+            print('📜 ' + Fore.BLUE + name + Style.RESET_ALL)
+
+# Перевіряємо чи передали аргумент чи ні
 if len(argv) > 1:
     directory(argv[1], is_root=True)
 else: 
