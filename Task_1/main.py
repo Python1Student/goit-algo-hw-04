@@ -8,7 +8,7 @@ def total_selery(path: str) -> tuple:
     # Перевіряємо чи існує файл з данними
     if file_path.exists():
         # Відкриваємо файл
-        with open(file_path, 'r') as file:
+        with open(file_path, 'r', encoding='utf-8') as file:
             # Робимо список з зарплатами
             salary = [int(num.split(',')[1].strip()) for num in file.readlines()]
     # Якщо файла не існує виводимо це і закриваємо програму
