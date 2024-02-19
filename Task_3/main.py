@@ -1,6 +1,4 @@
 from pathlib import Path
-from colorama import Fore
-
 
 def directory(path: str) -> None:
     directory_path = Path(path)
