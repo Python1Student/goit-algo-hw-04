@@ -17,19 +17,21 @@ def main():
             print(BOT + 'How can I help you?')
 
         elif command in ('add', 'change'):
+            # Перевіряємо чи 2 аргумента
             if len(args) == 2:
-                add_contact(*args)
+                print(add_contact(*args))
             else:
                 print(ERROR + 'Wrong Contact Details!')
 
         elif command == 'phone':
+            # Перевіряємо чи є аргументи
             if args:
-                read_contact(args[0])
+                print(read_contact(args[0]))
             else:
                 print(ERROR + 'Missed Contact Details!')
 
         elif command == 'all':
-            read_contact()
+            print(read_contact())
 
         else: print(ERROR + 'Invalid Command')
 
