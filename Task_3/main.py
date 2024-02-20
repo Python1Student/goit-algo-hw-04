@@ -1,11 +1,13 @@
 from pathlib import Path
 from colorama import Fore, Style
-from sys import argv
+from sys import argv, exit
 
 # Створюємо функцію для виводу вимісту директорії
 def directory(path: str = '', depth: int = 1, is_root: bool = False) -> None:
     # Створюємо об'єкт Path
     directory_path = Path(path)
+    if not directory_path.exists():
+        exit('Directory Not Found')
     # Перевіряємо чи функція викликається вперше
     if is_root:
         print('📦 ' + Fore.RED + directory_path.name + Style.RESET_ALL)
